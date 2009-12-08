@@ -1,0 +1,70 @@
+.left_menu_area {
+	margin: 0px;
+	padding: 0px;
+	float: right;
+	height: 320px;
+	width: 153px;
+}
+.left_menutop {
+	background-image: url(/images/menu_top.png);
+	background-repeat: no-repeat;
+	margin: 0px;
+	padding: 0px;
+	float: left;
+	height: 1px;
+	width: 153px;
+}
+.left_menu {
+	font-family: Arial;
+	font-size: 11px;
+	font-weight: bold;
+	font-variant: normal;
+	color: #386060;
+	text-decoration: none;
+	background-image: url(/images/menu_active.png);
+	background-repeat: no-repeat;
+	margin: 0px;
+	float: left;
+	height: 20px;
+	width: 138px;
+	padding-top: 5px;
+	padding-right: 15px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+}
+.left_menu:HOVER {
+	font-family: Arial;
+	font-size: 11px;
+	font-weight: bold;
+	font-variant: normal;
+	color: #da2a2a;
+	text-decoration: none;
+	background-image: url(/images/menu_hover.png);
+	background-repeat: no-repeat;
+	margin: 0px;
+	float: left;
+	height: 20px;
+	width: 138px;
+	padding-top: 5px;
+	padding-right: 15px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+}
+.left_menu_hover {
+	font-family: Arial;
+	font-size: 11px;
+	font-weight: bold;
+	font-variant: normal;
+	color: #da2a2a;
+	text-decoration: none;
+	background-image: url(/images/menu_hover.png);
+	background-repeat: no-repeat;
+	margin: 0px;
+	float: left;
+	height: 20px;
+	width: 138px;
+	padding-top: 5px;
+	padding-right: 15px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+}

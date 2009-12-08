@@ -1,0 +1,120 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<%= render :partial => 'shared/head'%> 
+</head>
+<%
+if @body_class.nil?
+  if @content_for_sidebar
+    @body_class = 'two-col'
+  else
+    @body_class = 'one-col'
+  end
+end
+ %>
+<body class="<%= @body_class %>"<%= %( id="#{@body_id}") if @body_id %>>
+  
+  <div id="topheader">
+
+    <div class="top_strip">
+           <%= link_to "Администрирование", "/admin", :class => "bookmark" %>           
+       <% if current_user -%>
+           <%= link_to t('logout'), logout_path, :class => "signuphere" %>
+           <%= link_to t('my_account'), user_path(current_user), :class => "freeregistration" %>
+       <% else %>           
+           <%= link_to t('log_in'), login_path, :class => "signuphere" %>
+           <%= link_to "Регистрация", signup_path, :class => "freeregistration" %>
+       <% end -%>
+           <a href="/sitemap" class="suscribe">Карта сайта</a>
+    </div>
+    
+    <div class="top_search">
+       <div class="searchname">
+         <label>
+         <input name="textfield" type="text" class="searchtextbox" value="Введите текст" />
+         </label>
+       </div>
+       <div class="searchname1">
+         <div align="center"><a href="#" class="go">Ок</a></div>
+       </div>
+       <div class="searchname1">
+         <div align="center"><a href="#" class="advance_search">Расширеный поиск</a></div>
+       </div>
+    </div>
+
+    <div id="menu" class="menu_area">	
+        <%= link_to t("home") , '/', :class => is_active?("home") %> 
+        <%= link_to "Каталог" , "/products", :class => is_active?("index") %>
+        <%= link_to "Новости" , "/news", :class => is_active?("news") %>
+ 	<%= link_to "Прайс-лист", "http://kancler.tornadosoft.biz/price/price.xls", :class => "menu" %>
+        <%= link_to "О компании" , "/about", :class => is_active?("about") %> 
+        <%= link_to "Контакты" , "/contact", :class => is_active?("contact") %> 
+    </div>
+
+  </div>
+    
+  <div id="wrapper" class="container"> 
+
+    <% if @content_for_sidebar %>
+    <div id="sidebar">
+      <%= yield :sidebar %>
+    </div>
+    <% end %>
+    
+    <div id="content">
+      <%= breadcrumbs(@taxon) if @taxon %>
+      <% if flash[:notice] %>
+      <div class="flash notice"><%= flash[:notice] %></div>
+      <% end %>
+      <% if flash[:error] %>
+      <div class="flash errors"><%= flash[:error] %></div>
+      <% end %>
+      <%= yield %>
+    </div>
+  </div>
+
+
+  <div id="fotter">
+    <div id="fotter_1">
+  
+       <div class="privacy_policy_text">
+         <p align="center" class="privacy_head">Торговая Группа "Канцлер"</p>
+         <p align="center" class="privacy_head1">Всегда рады сотрудничеству с Вами</p>
+         <p align="center" class="footer">г.Днепропетровск, ул. Краснозаводская, 3 (р-н пл. Островского)</p>
+         <p align="center" class="footer">тел. (0562) 39-84-54, 39-84-77</p>  
+       </div>
+  
+       <div class="fotter_links">
+         <div align="center">
+           <%= link_to t("home") , '/', :class => "fotterlink" %>  |  
+           <%= link_to "Каталог" , "/products", :class => "fotterlink" %>  |  
+           <%= link_to "Новости" , "/news", :class => "fotterlink" %>  |  
+           <%= link_to "Прайс-лист", "http://kancler.tornadosoft.biz/price/price.xls", :class => "fotterlink" %>  |
+           <%= link_to "О компании" , "/about", :class => "fotterlink" %>  | 
+           <%= link_to "Контакты" , "/contact", :class => "fotterlink" %>
+         </div>
+       </div>
+  
+       <div class="fotter_copyrights">
+         <div align="center">Copyright 2009. All Rights Reserved</div>
+       </div>
+  
+       <div class="fotter_validation">
+         <div align="center">
+           <a href="http://validator.w3.org/check?uri=referer" target="_blank" class="validation">XHTML</a> 
+           <a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank" class="validation">CSS</a><br />
+         </div>
+       </div>
+  
+       <div class="fotter_designed">
+         <div align="center"><span class="fotter_designed1">Разработка сайта:</span>
+           <a href="http://www.tornadosoft.biz" class="fotter_designedlink">TornadoSoft</a> 
+         </div>
+       </div>
+  
+    </div>
+
+  </div>
+
+</body>
+</html>

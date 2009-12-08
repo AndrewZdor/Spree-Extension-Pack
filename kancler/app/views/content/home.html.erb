@@ -1,0 +1,265 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Kancler</title>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+  <%= stylesheet_link_tag 'compiled/home' %>     
+  <%= stylesheet_link_tag 'compiled/z' %> 
+  <%= stylesheet_link_tag 'compiled/vertmenu' %>
+
+  <%= javascript_include_tag 'jquery-1.3.2.min', 'jquery.validate.pack.js', :cache => 'jquery-and-plugins' %>
+  <%= meta_data_tags %> 
+  <%= yield :head %>
+ 
+</head>
+
+<!--
+<= render :partial => 'shared/header' > 
+-->
+<body>
+
+<div id="topheader">
+
+    <div class="top_strip">
+           <%= link_to "Администрирование", "/admin", :class => "bookmark" %>           
+       <% if current_user -%>
+           <%= link_to t('logout'), logout_path, :class => "signuphere" %>
+           <%= link_to t('my_account'), user_path(current_user), :class => "freeregistration" %>
+       <% else %>           
+           <%= link_to t('log_in'), login_path, :class => "signuphere" %>
+           <%= link_to "Регистрация", signup_path, :class => "freeregistration" %>
+       <% end -%>
+           <a href="/sitemap" class="suscribe">Карта сайта</a>
+    </div>
+    
+    <div class="top_search">
+       <div class="searchname">
+         <label>
+         <input name="textfield" type="text" class="searchtextbox" value="Введите текст" />
+         </label>
+       </div>
+       <div class="searchname1">
+         <div align="center"><a href="#" class="go">Ок</a></div>
+       </div>
+       <div class="searchname1">
+         <div align="center"><a href="#" class="advance_search">Расширеный поиск</a></div>
+       </div>
+    </div>
+
+    <div id="menu" class="menu_area">	
+        <%= link_to t("home") , '/content/home', :class => is_active?("home") %> 
+        <%= link_to "Каталог" , "/products", :class => is_active?("index") %>
+        <%= link_to "Новости" , "/news", :class => is_active?("news") %>
+ 	<%= link_to "Прайс-лист","http://kancler.tornadosoft.biz/price/price.xls", :class => "menu" %>
+        <%= link_to "О компании" , "/content/about", :class => is_active?("about") %> 
+        <%= link_to "Контакты" , "/content/contact", :class => is_active?("contact") %> 
+    </div>
+
+
+</div>
+
+<div id="body_area">
+   <div class="left">
+     <div class="left_popup">Узнай <br/> больше <br/>       
+       <span class="left_head">Новости <br/> компании</span></div>
+     <div class="news_area">	
+       <p class="news_head">12 Января 2009</p>
+       <p>Quisque lacus sapien Nonummy vel iaculis vitae Laoreet ut</p>
+       <p><a href="#" class="news_link">Подробнее ...</a></p>
+     </div>
+     <div class="news_area">
+       <p class="news_head">14 Января 2009</p>
+       <p>Quisque lacus sapien Nonummy vel iaculis vitae Laoreet ut</p>
+       <p><a href="#" class="news_link">Подробнее ...</a></p>
+     </div>
+     <div class="news_area">
+       <p class="news_head">16 Января 2009</p>
+       <p>Quisque lacus sapien Nonummy vel iaculis vitae Laoreet ut</p>
+       <p><a href="#" class="news_link">Подробнее ...</a></p>
+     </div>
+     
+     <div class="onlinejobs"><a href="http://kancler.tornadosoft.biz/price/price.xls" class="onlinejobs"></a></div>
+         
+     
+   </div>   
+
+   <div class="gray_strip">     
+        
+    <%= render :partial => 'shared/taxonomies' %>
+    
+  
+<!--
+     <div class="events_text"><a href="#" class="events_text_link">Акция !</a></div>
+     <div class="events_text"><a href="#" class="events_text_link">Папки</a></div>
+     <div class="events_text"><a href="#" class="events_text_link">Доски</a></div>
+     <div class="events_text"><a href="#" class="events_text_link">Офисная техника</a></div>
+     <div class="events_text"><a href="#" class="events_text_link">Тетради</a></div>
+     <div class="events_text"><a href="#" class="events_text_link">Калькуляторы</a></div>
+     <div class="events_text"><a href="#" class="events_text_link">Упаковка</a></div>
+     <div class="events_text"><a href="#" class="events_text_link">Ручки</a></div>
+     <div class="events_text"><a href="#" class="events_text_link">Карандаши</a></div>
+     <div class="events_text"><a href="#" class="events_text_link">Бумага</a></div>
+     <div class="events_text"><a href="#" class="events_text_link">Канцтовары </a></div>
+     <div class="events_text"><a href="#" class="events_text_link">Хозтовары </a></div>
+-->        
+     
+   </div>
+
+
+  <div class="body_area">
+     <div class="head">Добро пожаловать </div>
+     <div class="body_text1">
+         ЧП «Канцлер ОПТ» занимает ведущее место в центральном регионе Украины среди фирм - дистрибьютеров канцелярских товаров, 
+         известна как стабильный и надежный партнер, работа которого построена на лучших традициях культуры производства и управления.
+     </div>
+     <div class="body_text">
+         Благодаря тщательному анализу продаж в оптовой торговле и розничной сети среди множества разнообразных товаров были отобраны 
+         самые лучшие отечественные и импортные бренды, пользующиеся наибольшим спросом на рынке Украины, и сегодня наш ассортимент 
+         обеспечивает широкий спектр потребности клиента. Наше предприятие является представителем таких торговых марок:
+     </div>
+     <p align="center"></p>
+<!--
+     <div class="body_text"><a href="#" class="link">заказ товара по телефону, факсу, электронной почте</a></div>
+     <div class="body_text"><a href="#" class="link">бесплатная и оперативная доставка по городу</a></div> 
+-->
+
+     <div class="body_text">
+	<b>Pilot (Япония), Uni-ball (Япония)</b> – японские пишущие принадлежности
+     </div>
+
+     <div class="body_text">
+	<b>Inoxcrom (Испания), Parker (Англия)</b> – практичность, прочность, современный функциональный дизайн ручек и презентабельная красивая упаковка
+     </div> 
+
+     <div class="body_text">
+	<b>Economix (Германия), BuroMax (Украина), Kores (Испания), Donau (Австрия)</b> – корректоры, клей, штрихи с кисточкой, штемпельная продукция и офисные мелочи
+     </div> 
+
+     <div class="body_text">
+	<b>Koh-i-Noor (Чехия), Milan (Испания)</b> – ластики, цветные и чернографитные карандаши, готовальни и циркули, художественный мел, пластилин, фломастеры     
+     </div> 
+
+     <div class="body_text">
+	<b>VIF (Украина)</b> – новая линия деловой кожгалантереи
+     </div> 
+
+     <div class="body_text">
+	<b>Полиграфист (Украина), Бриск (Украина) </b>– тетради, блокноты, ежедневники
+     </div> 
+
+     <div class="body_text">
+	<b>Луч (Россия), Гамма (Россия)</b> – художественные профессиональные и детские краски, чернила, тушь
+     </div> 
+
+     <div class="body_text">
+	<b>KUM (Германия)</b> – точилки немецкого качества, доступная цена
+     </div> 
+
+     <div class="body_text">
+	<b>Centropen (Чехия)</b> – фломастеры обычные и воздушные, текстильные и для татуировок, маркеры текстовые и перманентные, рапидографы.  Безупречное качество, проверенное временем и подтверждено реальными показателями
+     </div> 
+
+     <div class="body_text">
+	<b>Trodat (Австрия)</b> – полный спектр автоматической штемпельной продукции. Новшество, облегчающее рутину рабочего дня – штемпельная серия
+     </div> 
+
+     <div class="body_text">
+	<b>Brunen (Германия)</b> - деловые ежедневники, алфавитные записные книжки
+     </div> 
+
+     <div class="body_text">
+	<b>Ballet, IBM, IQ, Tecnis, KYM LUX (Финляндия), Data Copy (Швеция)</b> – форматная бумага для офисной техники.
+     </div> 
+
+<!--
+     <div class="body_banner_area">
+       <div class="banner1_text">Здесь какой нибудь текст</div>
+
+       <div class="seemore_ideas_area">
+         <div class="idea_background">
+           <div class="see_ideas">
+             <p class="see_ideas_head">Акция !!!</p>
+             <p>nulla augue ultrices dolor,</p>
+           </div>
+           <div class="ideas_text">Morbi eu est ac augue ornare dictum. Donec ut diam. Nullam quis odio at ante</div>
+
+         </div>
+
+         <div class="idea_links">
+           <div class="links1_area">
+		<a href="#" class="link1">Pilot Uni-ball<span class="link_no1">01</span></a> 
+		<a href="#" class="link1">Inoxcrom Parker<span class="link_no2">02</span></a> 
+		<a href="#" class="link1">Economix BuroMax<span class="link_no3">03</span></a><br/>
+		<a href="#" class="link1">Koh-i-Noor Milan<span class="link_no4">04</span></a> 
+		<a href="#" class="link1">VIF<span class="link_no5">05</span></a> 
+		<a href="#" class="link1">Полиграфист Бриск<span class="link_no6">06</span></a>
+           </div>
+           <div class="idea_divider"></div>
+           <div class="links1_area">
+		<a href="#" class="link1">Quisque lacus sapien<span class="link_no1">07</span></a> 
+		<a href="#" class="link1">Nonummy vel iaculis vitae<span class="link_no2">08</span></a> 
+		<a href="#" class="link1">Laoreet ut<span class="link_no3">09</span></a><br/>
+		<a href="#" class="link1">Morbi libero nibh<span class="link_no4">10</span></a> 
+		<a href="#" class="link1">Condimentum utsuscipit<span class="link_no5">11</span></a> 
+		<a href="#" class="link1">Faucibus anulla<span class="link_no6">12</span></a>
+           </div>
+         </div>
+       </div>
+     </div>
+-->
+
+     <div class="body_text1">
+	Ознакомиться с нашим ассортиментом и получить квалифицированную консультацию Вы сможете, посетив постоянно действующую выставку 
+        по адресу: ул. Краснозаводская, 3 (р-н пл. Островского) с 9.00 до 18.00; тел. 39-84-77 
+     </div>
+
+  </div>  
+</div>  
+
+
+<div id="fotter">
+    <div id="fotter_1">
+  
+       <div class="privacy_policy_text">
+         <p align="center" class="privacy_head">Торговая Группа "Канцлер"</p>
+         <p align="center" class="privacy_head1">Всегда рады сотрудничеству с Вами</p>
+         <p align="center" class="footer">г.Днепропетровск, ул. Краснозаводская, 3 (р-н пл. Островского)</p>
+         <p align="center" class="footer">тел. (0562) 39-84-54, 39-84-77</p>  
+       </div>
+  
+       <div class="fotter_links">
+         <div align="center">
+           <%= link_to t("home") , '/content/home', :class => "fotterlink" %>  |  
+           <%= link_to "Каталог" , "/products", :class => "fotterlink" %>  |  
+           <%= link_to "Новости" , "/content/news", :class => "fotterlink" %>  |  
+           <%= link_to "Прайс-лист", "http://kancler.tornadosoft.biz/price/price.xls", :class => "fotterlink" %>  |
+           <%= link_to "О компании" , "/content/about", :class => "fotterlink" %>  | 
+           <%= link_to "Контакты" , "/content/contact", :class => "fotterlink" %>
+         </div>
+       </div>
+  
+       <div class="fotter_copyrights">
+         <div align="center">Copyright 2009. All Rights Reserved</div>
+       </div>
+  
+       <div class="fotter_validation">
+         <div align="center">
+           <a href="http://validator.w3.org/check?uri=referer" target="_blank" class="validation">XHTML</a> 
+           <a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank" class="validation">CSS</a><br />
+         </div>
+       </div>
+  
+       <div class="fotter_designed">
+         <div align="center"><span class="fotter_designed1">Разработка сайта:</span>
+           <a href="http://www.tornadosoft.biz" class="fotter_designedlink">TornadoSoft</a> 
+         </div>
+       </div>
+  
+    </div>
+
+</div>
+  
+
+</body>
+</html>

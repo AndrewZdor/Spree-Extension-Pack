@@ -1,0 +1,16 @@
+﻿<% content_for :head do %>
+  <%= stylesheet_link_tag 'blog.css' %>
+<% end %>
+
+<div class="blog_header">
+  <%= b.created_at.strftime("%A, %d %B %Y") %>, автор: <%= b.author %> 
+</div>
+<h2>
+  <%= link_to "#{b.title}", (blog_entry_path b), :class => 'events_head1' %>
+</h2>
+
+<div style="margin: 10px; padding: 3px;">
+  <%= expand_sku(b) %>
+</div>
+<div style="clear:both;"></div>
+<br/>

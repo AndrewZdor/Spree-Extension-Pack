@@ -1,0 +1,16 @@
+﻿<% content_for :head do %>
+  <%= stylesheet_link_tag 'blog.css' %>
+<% end %>
+
+  <div class="head">Новости компании</div><br/><br/><br/>
+
+  <ul style="list-style: none; margin: 0px; bottom-padding: 2em">
+  <% @blogs.each do |b| %>
+    <li>
+      <%= render :partial => 'blog', :locals => {:b => b} %>    
+    </li>
+  <% end %>
+  </ul>
+
+
+  

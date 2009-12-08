@@ -1,0 +1,11 @@
+﻿    <div class="top_strip">
+           <%= link_to "Администрирование", "/admin", :class => "bookmark" %>           
+       <% if current_user -%>
+           <%= link_to t('logout'), logout_path, :class => "signuphere" %>
+           <%= link_to t('my_account'), user_path(current_user), :class => "freeregistration" %>
+       <% else %>           
+           <%= link_to t('log_in'), login_path, :class => "signuphere" %>
+           <%= link_to "Регистрация", signup_path, :class => "freeregistration" %>
+       <% end -%>
+           <a href="#" class="suscribe">RSS лента</a>
+    </div>

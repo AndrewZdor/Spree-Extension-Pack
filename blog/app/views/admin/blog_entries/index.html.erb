@@ -1,0 +1,41 @@
+<h1><%= t('blog_management') %></h1>
+
+<br/><br/>
+<%= link_to t('new_blog_entry'), new_admin_blog_entry_path %>
+<br/><br/>
+
+<table cellspacing=6>
+  <tr>
+    <th><%=t('date_author')%></th>
+    <th><%=t('title')%></th>
+    <th><%=t('body')%></th>
+  </tr>
+
+<% for blog_entry in @blog_entries %>
+  <tr>
+    <td> 
+      <%=h blog_entry.created_at.strftime("%d-%m-%y (%H:%M)") %>
+      <br/>
+        <%=blog_entry.author %>
+    </td>
+    <td>
+      <strong><%=blog_entry.title %></strong>
+      <br/>
+      <ul style="list-style: none">
+      <% blog_entry.products.each do |p| %>
+        <li> <%= link_to p.name, p %> </li>
+      <% end %>
+      </ul>
+      
+    </td>
+    <td style="border: 1px dashed green">
+      <%= truncate(blog_entry.body, length = 100, truncate_string = "...") %>
+    </td>
+    <td>
+        <%= link_to t('edit'), [:edit, :admin, blog_entry] %> |
+        <%= link_to t('destroy'), [:admin, blog_entry], :method => :delete, :confirm => t('are_you_sure_blog_entry') %>
+    </td>
+  </tr>
+<% end %>
+</table>
+

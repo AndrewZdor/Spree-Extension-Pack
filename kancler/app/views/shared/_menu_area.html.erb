@@ -1,0 +1,8 @@
+﻿    <div id="menu" class="menu_area">	
+        <%= link_to t("home") , '/home', :class => is_active?("home") %> 
+        <%= link_to "Каталог" , "/products", :class => is_active?("index") %>
+        <%= link_to "Новости" , "/news", :class => is_active?("news") %>
+ 	<%= link_to "Прайс-лист", "http://kancler.tornadosoft.biz/price/price.xls", :class => "menu" %>
+        <%= link_to "О компании" , "/about", :class => is_active?("about") %> 
+        <%= link_to "Контакты" , "/contact", :class => is_active?("contact") %> 
+    </div>

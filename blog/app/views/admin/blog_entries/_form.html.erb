@@ -1,0 +1,21 @@
+<%= error_messages_for :blog_entry %>
+<br />
+<p>
+  <%= form.label t('author') %><br />
+  <%= form.text_field :author %>
+</p>
+<p>
+  <%= form.label t('title') %><br />
+  <%= form.text_field :title %>
+</p>
+<p>
+  <%= form.label t('body') %><br />
+  <%= form.text_area :body, :cols => 60, :rows => 10 %>
+</p>
+<br/>
+<p>
+</p>
+<p>
+  <%= form.submit button_name %>
+</p>
+
